@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for person in persons %}
+<div>
+<a href="{% url 'detail' person.id %}">{{person.name}}</a>
+</div>
+
+{% endfor %}
+{% endblock %}

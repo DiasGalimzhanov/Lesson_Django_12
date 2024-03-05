@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h5>{{person.name}}</h5>
+<p>{{person.birth_date}}</p>
+<p>{{person.work_place}}</p>
+<p>{{person.salary}}</p>
+<p>{{person.gender}}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <a href="{% url 'delete' person.id %}">delete</a>
+    <a href="{% url 'update' person.id %}">Update</a>
+</form>
+{% endblock%}
