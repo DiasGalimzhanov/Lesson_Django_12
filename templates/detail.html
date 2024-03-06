@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>{{person.name}}</h5>
-<p>{{person.birth_date}}</p>
-<p>{{person.work_place}}</p>
-<p>{{person.salary}}</p>
-<p>{{person.gender}}</p>
-
-<form method="post">
-    {% csrf_token %}
-    <a href="{% url 'delete' person.id %}">delete</a>
-    <a href="{% url 'update' person.id %}">Update</a>
-</form>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{person.name}}</h5>
+      <p class="card-text">{{person.birth_date}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Work:   {{person.work_place}}</li>
+      <li class="list-group-item">Salary: {{person.salary}}</li>
+      <li class="list-group-item">Gender: {{person.gender}}</li>
+    </ul>
+    <div class="card-body">
+        <form method="post">
+        {% csrf_token %}
+        <a href="{% url 'delete' person.id %}" class="card-link">Delete</a>
+        <a href="{% url 'update' person.id %}" class="card-link">Update</a>
+    </form>
+    </div>
+  </div>
 {% endblock%}

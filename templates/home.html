@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<ul class="list-group">
 {% for person in persons %}
-<div>
-<a href="{% url 'detail' person.id %}">{{person.name}}</a>
-</div>
-
+    <li class="list-group-item"><a href="{% url 'detail' person.id %}">{{person.name}}</a></li>   
 {% endfor %}
+</ul>
 {% endblock %}
